@@ -11,3 +11,5 @@ router.get('/:id', function(req, res){
     include: [db.volunteer]
   })
 })
+
+module.exports = router;
