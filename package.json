@@ -22,6 +22,7 @@
     "ejs-layouts": "0.0.1",
     "express": "^4.16.1",
     "express-ejs-layouts": "^2.3.1",
+    "passport": "^0.4.0",
     "pg": "^6.4.1",
     "pg-hstore": "^2.3.2",
     "rowdy-logger": "^1.0.0",
