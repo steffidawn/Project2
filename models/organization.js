@@ -8,7 +8,13 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        //add event model with date/time later
+        // models.organization.hasMany(models.event);
+      }
+    },
+    instanceMethods: {
+      getName: function() {
+        return this.name;
       }
     }
   });

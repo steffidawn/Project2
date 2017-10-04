@@ -38,9 +38,12 @@ var passport = require('./config/ppConfig');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', function(req, res) {
-  res.render('index');
+app.get('/', function(req,res){
+  res.send('<h1>Here is some HTML</h1>');
 });
+// app.get('/', function(req, res) {
+//   res.render('index');
+// });
 
 app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
@@ -53,6 +56,11 @@ app.use('/auth', require('./controllers/auth'));
 //Bringing in volunteer and org controllers:
 app.use('/orgs', require('./controllers/orgs'));
 app.use('/volunteers', require('./controllers/volunteers'));
+
+app.get('/', function(req, res){
+
+
+})
 
 var server = app.listen(process.env.PORT || 3000);
 
