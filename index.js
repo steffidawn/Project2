@@ -7,6 +7,7 @@ var ejsLayouts = require('express-ejs-layouts');
 var session = require('express-session');
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
+var db = require('./models');
 
 
 var app = express();
@@ -37,13 +38,25 @@ var passport = require('./config/ppConfig');
 // initialize the passport configuration and session as middleware
 app.use(passport.initialize());
 app.use(passport.session());
+//Bringing in volunteer and org controllers:
+app.use('/orgs', require('./controllers/orgs'));
+app.use('/volunteers', require('./controllers/volunteers'));
 
+//Get routes:
 app.get('/', function(req,res){
   res.send('<h1>Here is some HTML</h1>');
 });
 // app.get('/', function(req, res) {
 //   res.render('index');
 // });
+
+app.get('/orgs', function(req, res) {
+
+});
+
+app.get('/volunteers', function(req, res) {
+
+});
 
 app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
@@ -53,14 +66,9 @@ app.use('/auth', require('./controllers/auth'));
 
 
 
-//Bringing in volunteer and org controllers:
-app.use('/orgs', require('./controllers/orgs'));
-app.use('/volunteers', require('./controllers/volunteers'));
-
-app.get('/', function(req, res){
 
 
-})
+
 
 var server = app.listen(process.env.PORT || 3000);
 
