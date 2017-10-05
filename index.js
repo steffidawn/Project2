@@ -38,9 +38,12 @@ var passport = require('./config/ppConfig');
 // initialize the passport configuration and session as middleware
 app.use(passport.initialize());
 app.use(passport.session());
-//Bringing in volunteer and org controllers:
+//Bringing in volunteer,org, profile, and org controllers:
+app.use('/auth', require('./controllers/auth'));
 app.use('/orgs', require('./controllers/orgs'));
 app.use('/volunteers', require('./controllers/volunteers'));
+app.use('/profile', require('./controllers/profile'));
+
 
 //Get routes:
 app.get('/', function(req,res){
@@ -50,19 +53,12 @@ app.get('/', function(req,res){
 //   res.render('index');
 // });
 
-app.get('/orgs', function(req, res) {
-
-});
-
-app.get('/volunteers', function(req, res) {
-
-});
 
 app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
 
-app.use('/auth', require('./controllers/auth'));
+
 
 
 

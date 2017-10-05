@@ -1,9 +1,11 @@
+//all volunteers:
+
 var express = require('express');
 var db = require('../models');
 var router = express.Router();
 
 
-//Display volunteer profile:
+//Display volunteer info:
 ///Need to fix this up:
 router.get('/:id', function(req, res){
   dp.post.find({
