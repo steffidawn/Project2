@@ -34,9 +34,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use('/auth', require('./controllers/auth'));
 app.use('/orgs', require('./controllers/orgs'));
-app.use('/volunteers', require('./controllers/volunteers'));
 app.use('/profile', require('./controllers/profile'));
-
+app.use('/volunteers', require('./controllers/volunteers'));
 
 //Get routes:
 
