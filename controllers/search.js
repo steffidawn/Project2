@@ -1,14 +1,25 @@
 var express = require('express');
-var db = require('../models');
 var router = express.Router();
+var db = require('../models');
+var bodyParser = require('body-parser');
+var passport = require('../config/ppConfig');
+var request = require('request');
 
-router.get('/', function(req, res) {
-    var orgUrl = 'https://projects.propublica.org/nonprofits/api/v2/search.json?q=propublica';
-    request(pokemonUrl, function(error, response, body) {
-      //what we're getting back from API
-    var org = JSON.parse(body).results;
-      //first pokemon is a key, the 2nd is the pokemon we are passing in from the JSON
-    res.render('index', { organizations: organizations });
-    });
-
+router.get("/", function(req, res) {
+    res.render('search/index')
 });
+
+router.post("/result", function(req, res) {
+    var orgApi = 'https://projects.propublica.org/nonprofits/api/v2/search.json?q=propublica';
+    var q = req.body.name;
+    request(orgApi + q, function(error, response, body) {
+        if (error) {
+            return res.send(error);
+        }
+        var data = JSON.parse(body);
+        var results = data.data
+        res.render('search/result', { results: results })
+    });
+});
+
+module.exports = router;

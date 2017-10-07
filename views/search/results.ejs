@@ -1,0 +1,29 @@
+<form action="/search/results" method="POST">
+  <div class="form-group">
+    <label for="name">Organization</label>
+    <input id="name" class="form-control" type="text" name="name" placeholder="Search Organization">
+    <input class="btn btn-primary" type="submit">
+  </div>
+</form>
+
+<% results.forEach(function(results){ %>
+  <div class="well">
+    <!-- <img class="cardThumb"src="<%= results.image_uris.small %>"> -->
+    <h2 class="capitalize"><%= results.name %></h2>
+    <p>Code: <%= results.city%></p>
+    <p>Set Name: <%= results.state%></p>
+    <p>Rarity: <%= results.rarity %></p>
+    <!-- <div>
+      <form method="POST" action="/collection">
+        <input hidden type="text" name="name" value="<%= results.name%>">
+        <input hidden type ="text" name="img" value="<%= results.image_uris.small%>">
+        <input hidden type ="text" name="bigImg" value="<%= results.image_uris.normal%>">
+        <input hidden type ="text" name="setName" value="<%= results.set_name%>">
+        <input hidden type ="text" name="id" value="<%= results.multiverse_id %>">
+        <input hidden type ="text" name="rarity" value="<%= results.rarity%>">
+        <input hidden type="text" name="price" value="<%= results.usd %>">
+        <button class="btn btn-primary" type="submit">Add to Collection</button>
+      </form>
+    </div> -->
+  </div>
+<% }); %>
