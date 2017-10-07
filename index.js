@@ -33,11 +33,7 @@ app.use(function(req, res, next) {
 var passport = require('./config/ppConfig');
 app.use(passport.initialize());
 app.use(passport.session());
-app.use('/auth', require('./controllers/auth'));
-app.use('/orgs', require('./controllers/orgs'));
-app.use('/profile', require('./controllers/profile'));
-app.use('/search', require('./controllers/search'));
-app.use('/volunteers', require('./controllers/volunteers'));
+
 
 //Get routes:
 
@@ -60,6 +56,12 @@ app.get('/', function(req, res) {
 app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
+
+app.use('/auth', require('./controllers/auth'));
+app.use('/orgs', require('./controllers/orgs'));
+app.use('/profile', require('./controllers/profile'));
+app.use('/search', require('./controllers/search'));
+app.use('/volunteers', require('./controllers/volunteers'));
 
 var server = app.listen(process.env.PORT || 3000);
 

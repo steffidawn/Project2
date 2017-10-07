@@ -9,7 +9,7 @@ router.get("/", function(req, res) {
     res.render('search/index')
 });
 
-router.post("/result", function(req, res) {
+router.post("/results", function(req, res) {
     var orgApi = 'https://projects.propublica.org/nonprofits/api/v2/search.json?q=propublica';
     var q = req.body.name;
     request(orgApi + q, function(error, response, body) {
@@ -18,7 +18,7 @@ router.post("/result", function(req, res) {
         }
         var data = JSON.parse(body);
         var results = data.data
-        res.render('search/result', { results: results })
+        res.render('search/results', { results: results })
     });
 });
 
