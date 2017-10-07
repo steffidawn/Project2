@@ -8,6 +8,7 @@ var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var db = require('./models');
 
+
 var app = express();
 
 app.set('view engine', 'ejs');
