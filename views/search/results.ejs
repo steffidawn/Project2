@@ -1,4 +1,12 @@
-<form action="/search/results" method="POST">
+<h1>List of Nonprofit Organizations in the United States:</h1>
+
+<% for(var i = 0; i < orgApi.length; i++) { %>
+  <p>Name: <%= orgApi[i].organizations.name %></p>
+  <p>Location: <%= orgApi[i].organizations.city %>, <%= orgApi[i].organizations.state %></p>
+
+
+<% } %>
+<!-- <form action="/search/results" method="POST">
   <div class="form-group">
     <label for="name">Organization</label>
     <input id="name" class="form-control" type="text" name="name" placeholder="Search Organization">
@@ -8,10 +16,10 @@
 
 <% results.forEach(function(results){ %>
   <div class="well">
-    <h2 class="capitalize"><%= results.name %></h2>
-    <p>City: <%= results.city%></p>
-    <p>State: <%= results.state%></p>
+    <h2 class="capitalize"><%= results.organizations.name %></h2>
+    <p>City: <%= results.organizations.city%></p>
+    <p>State: <%= results.organziations.state%></p>
 
-  
+
   </div>
-<% }); %>
+<% }); %> -->
