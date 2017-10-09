@@ -5,10 +5,25 @@ var bodyParser = require('body-parser');
 var passport = require('../config/ppConfig');
 var request = require('request');
 
-router.get('/search', function(req, res, next){
-  var orgApi = 'https://projects.propublica.org/nonprofits/api/v2/search.json?q=propublica';
-  res.render('orgApi', {organizations: organizations});
+// console.log("hello");
+//
+// router.get('/', function(req,res){
+//   console.log("trying to render");
+//   res.render("<h1>hi</hi>");
+
+
+router.get('/', function(req, res){
+  var orgApi = 'http://projects.propublica.org/nonprofits/api/v2/search.json?q=propublica';
+
+  request(orgApi, function(error, response, body){
+    console.log('hello');
+    var parsedBody = JSON.parse(body);
+    var allOrgs = parsedBody.organizations;
+    res.render('search/search', {organizations: allOrgs});
+    // res.render('/search', {organizations: orgApi});
+  });
 });
+
 // router.get("/", function(req, res) {
 //     res.render('search/index')
 // });
