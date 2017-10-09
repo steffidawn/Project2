@@ -7,7 +7,7 @@ router.get('/signup', function(req, res) {
   res.render('auth/signup');
 });
 
-router.post('signup', function(req, res) {
+router.post('/signup', function(req, res) {
   db.user.findOrCreate({
     where: {email: req.body.email},
     defaults: {

@@ -1,0 +1,26 @@
+<h1>Your Profile</h1>
+
+<% organizations.forEach(function(savedOrgs)  { %>
+  <div class = "well">
+    <h2><%= organizations.name %></h2>
+    <p><%= organization.city %>, <%= organization.state %></p>
+    <a href = "/profile<%= organizations.organizations %>" class = "btn btn-danger glyphicon glyphicon-trash delete-btn"></a>
+  </div>
+<% }); %>
+
+<script>
+$('.delete-btn').click(function(e) {
+  e.preventDefault();
+  var url = $(this).attr('href');
+
+  $.ajax({
+    url: url,
+    method: 'DELETE'
+  }).done(function() {
+    window.location.href = '/profile';
+  });
+});
+</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
