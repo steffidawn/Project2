@@ -4,5 +4,13 @@
   <p>Name: <%= organizations[i].name %></p>
   <p>Location: <%= organizations[i].city %>, <%= organizations[i].state %></p>
 
+  <div>
+   <form method="POST" action="/">
+      <input type="hidden" name="name" value="<%= organizations[i].name %>" />
+      <input type="hidden" name="city" value="<%= organizations[i].city %>" />
+      <input type="hidden" name="state" value="<%= organizations[i].state %>" />
+      <input class="btn btn-primary" type="submit" value="Save Organization to Favorites" />
+    </form>
+  </div>
 
 <% } %>
