@@ -16,7 +16,7 @@
 * Planned database and models
 * Used auth boilerplate as starting point for code
 
-** Wireframes:**
+** Wireframes: **
 
 
 ### Days 3 & 4: 
