@@ -17,6 +17,7 @@
 * Used auth boilerplate as starting point for code
 
 **Wireframes:**
+
 <img width="539" alt="wireframe" src="https://user-images.githubusercontent.com/26214106/31372568-42a09afa-ad4b-11e7-8f53-d82a8b5d1e40.png">
 
 ### Days 3 & 4: 
@@ -26,3 +27,10 @@
 ### Remainder of project time:
 * Adjusted logic as needed
 * Added styling 
+
+## Next Steps:
+
+* Fix auth issues
+* Improve styling
+* Add event creation functionality
+
