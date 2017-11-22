@@ -16,7 +16,11 @@ router.post('/signup', function(req, res) {
       password: req.body.password
     }
   }).spread(function(user, created) {
+    console.log("we got user info back from the db");
+    console.log(user);
+    console.log(created);
     if (created) {
+      console.log("We are going to try passport now");
       passport.authenticate('local', {
         successRedirect: '/',
         successFlash: 'Account created and logged in'

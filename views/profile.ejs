@@ -1,0 +1,14 @@
+<h1>Your Profile</h1>
+
+<h2>Saved Organizations:</h2>
+<% organizations.forEach(function(org)  { %>
+  <div class = "well">
+    <h2><%= org.name %></h2>
+    <p><%= org.city %>, <%= org.state %></p>
+    <a href = "/profile/<%= org.id %>" class = "btn btn-danger glyphicon glyphicon-trash delete-btn">Delete from Saved Orgs</a>
+  </div>
+<% }); %>
+
+<script>
+
+</script>

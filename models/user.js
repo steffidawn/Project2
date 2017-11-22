@@ -35,18 +35,20 @@ module.exports = (sequelize, DataTypes) => {
                 var hash = bcrypt.hashSync(createdUser.password, 10);
                 // store the hash as the user's password
                 createdUser.password = hash;
+                console.log("In the beforeCreate of the model");
                 // continue to save the user, with no errors
                 cb(null, createdUser);
             }
         },
         classMethods: {
             associate: function(models) {
-              // models.user.hasMany(models.savedOrgs);
+            models.user.hasMany(models.favorite);
             }
         },
         instanceMethods: {
             validPassword: function(password) {
                 // return if the password matches the hash
+                console.log("In the validPassword of the model");
                 return bcrypt.compareSync(password, this.password);
             },
             toJSON: function() {

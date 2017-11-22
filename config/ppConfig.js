@@ -14,9 +14,10 @@ passport.deserializeUser(function(id, cb){
 
 //May need to update this because of different user profiles:
 passport.use(new LocalStrategy({
-  userNameField: 'email',
+  usernameField: 'email',
   passwordField: 'password'
 }, function(email, password, cb){
+  console.log("WE ARE TRYING TO AUTHENTICATE THE USER");
   db.user.find({
     where: {email: email}
   }).then(function(user){

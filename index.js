@@ -35,13 +35,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-//Get routes:
 
-// app.get('/', function(req, res){
-//   res.send(`
-//     <h1>Here is some HTML</h1>
-//     `);
-// });
 app.get('/', function(req, res) {
   // db.volunteer.findAll({
   //   include: [db.author]
