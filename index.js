@@ -8,7 +8,6 @@ var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var db = require('./models');
 
-
 var app = express();
 
 app.set('view engine', 'ejs');
@@ -34,21 +33,12 @@ var passport = require('./config/ppConfig');
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
 app.get('/', function(req, res) {
-  // db.volunteer.findAll({
-  //   include: [db.author]
-  // }).then(function(posts) {
-    res.render('./main/index');
-    // , { volunteers: volunteers }
-  });
-  // catch(function(error) {
-  //   res.status(400).render('main/404');
-  // });
+  res.render('./main/index');
+});
 
 app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile');
+  res.render('/');
 });
 
 app.use('/auth', require('./controllers/auth'));

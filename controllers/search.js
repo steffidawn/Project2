@@ -11,8 +11,8 @@ router.get('/', function(req, res){
   request(orgApi, function(error, response, body){
     console.log('hello');
     var parsedBody = JSON.parse(body);
-    var allOrgs = parsedBody.organizations;
-    res.render('search/search', {organizations: allOrgs});
+    var organizations = parsedBody.organizations;
+    res.render('search/search', {organizations: organizations});
   });
 });
 
