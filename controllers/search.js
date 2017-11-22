@@ -6,6 +6,7 @@ var passport = require('../config/ppConfig');
 var request = require('request');
 
 router.get('/', function(req, res){
+  console.log('search root route');
   var orgApi = 'http://projects.propublica.org/nonprofits/api/v2/search.json?q=propublica';
 
   request(orgApi, function(error, response, body){

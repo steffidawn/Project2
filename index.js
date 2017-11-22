@@ -36,16 +36,16 @@ app.use(passport.session());
 app.get('/', function(req, res) {
   res.render('./main/index');
 });
-
-app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('/');
-});
+//
+// app.get('/profile', isLoggedIn, function(req, res) {
+//   res.render('/');
+// });
 
 app.use('/auth', require('./controllers/auth'));
-app.use('/orgs', require('./controllers/orgs'));
+// app.use('/orgs', require('./controllers/orgs'));
 app.use('/profile', require('./controllers/profile'));
 app.use('/search', require('./controllers/search'));
-app.use('/volunteers', require('./controllers/volunteers'));
+// app.use('/volunteers', require('./controllers/volunteers'));
 
 var server = app.listen(process.env.PORT || 3000);
 

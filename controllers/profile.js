@@ -9,6 +9,7 @@ var passport = require('../config/ppConfig');
 var request = require('request');
 
 router.get('/', isLoggedIn, function(req, res) {
+	console.log('whasssssup');
 	db.user.find({
 		where: {
 			id: req.user.id
@@ -45,7 +46,7 @@ router.post('/', isLoggedIn, function(req, res){
 			city: req.body.city,
 			state: req.body.state
 		}).then(function(data) {
-			res.render("profile/profile", { organizations: organizations });
+			res.redirect("profile/profile", { organizations: organizations });
 		});
 	});
 });
