@@ -10,5 +10,17 @@
 <% }); %>
 
 <script>
-
+  $('.delete-btn').on('click', function(e) {
+  e.preventDefault();
+  var organizationsElement = $(this);
+  var organizationsUrl = organizationsElement.attr('/profile/');
+  $.ajax({
+    method: 'DELETE',
+    url: organizationsUrl
+  }).done(function(data) {
+    console.log(data);
+    organizationsElement.remove();
+    window.location = '/profile';
+  });
+  });
 </script>
