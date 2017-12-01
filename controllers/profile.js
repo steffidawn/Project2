@@ -21,13 +21,14 @@ router.get('/', isLoggedIn, function(req, res) {
 });
 
 router.delete('/:id', isLoggedIn, function(req, res) {
+	// console.log("QQQQQQQQ in the delete route QQQQQQQQQQ");
 	var removeOrg = req.params.id
 	db.favorite.destroy({
 		where: {
 			id: removeOrg
 		}
 	}).then(function() {
-			res.render('/')
+			res.send('Successfully deleted');
 		}).catch(function(error){
 			res.send('Whoops, there was an error.');
 		});
@@ -46,7 +47,8 @@ router.post('/', isLoggedIn, function(req, res){
 			city: req.body.city,
 			state: req.body.state
 		}).then(function(data) {
-			res.redirect("profile/profile", { organizations: organizations });
+			// console.log(data);
+			res.redirect("/profile");
 		});
 	});
 });

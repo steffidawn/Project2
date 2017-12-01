@@ -9,18 +9,20 @@
   </div>
 <% }); %>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
   $('.delete-btn').on('click', function(e) {
-  e.preventDefault();
-  var organizationsElement = $(this);
-  var organizationsUrl = organizationsElement.attr('/profile/');
-  $.ajax({
-    method: 'DELETE',
-    url: organizationsUrl
-  }).done(function(data) {
-    console.log(data);
-    organizationsElement.remove();
-    window.location = '/profile';
-  });
+    console.log("QQQQQQQQ in the AJAX override QQQQQQQQQQ");
+    e.preventDefault();
+    var organizationsElement = $(this);
+    var organizationsUrl = organizationsElement.attr('href');
+    $.ajax({
+      method: 'DELETE',
+      url: organizationsUrl
+    }).done(function(data) {
+      console.log(data);
+      organizationsElement.remove();
+      window.location = '/profile';
+    });
   });
 </script>
